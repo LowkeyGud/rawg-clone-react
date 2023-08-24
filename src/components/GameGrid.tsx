@@ -33,7 +33,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             </GameCardContainer>
           ))}
 
-        {data?.pages.map((page, index) => <React.Fragment>
+        {data?.pages.map((page, index) => <React.Fragment key={index}>
           {page?.results.map((game) => (
             <GameCardContainer key={game.id}>
               <GameCard game={game} />
