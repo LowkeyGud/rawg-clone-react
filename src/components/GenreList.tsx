@@ -4,8 +4,7 @@ import {
   Heading,
   Image,
   List,
-  ListItem,
-  Spinner,
+  ListItem
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenre";
 import getCroppedImageUrl from "../services/image-url";
@@ -13,10 +12,10 @@ import GameListSkeleton from "./GameListSkeleton";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
@@ -46,7 +45,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Button
                 whiteSpace="normal"
                 textAlign="left"
-                color={selectedGenre?.id === genre.id ? "red.600" : "normal"}
+                color={selectedGenreId === genre.id ? "red.600" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize="md"
                 variant="link"

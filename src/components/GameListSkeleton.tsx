@@ -1,11 +1,7 @@
 import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  List,
-  Skeleton,
-  SkeletonText,
+    HStack,
+    List,
+    Skeleton
 } from "@chakra-ui/react";
 
 const GameListSkeleton = () => {
