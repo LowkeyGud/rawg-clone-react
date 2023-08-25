@@ -1,7 +1,7 @@
 import {
-    HStack,
-    List,
-    Skeleton
+  HStack,
+  List,
+  Skeleton
 } from "@chakra-ui/react";
 
 const GameListSkeleton = () => {
