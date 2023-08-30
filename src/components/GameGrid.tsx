@@ -18,7 +18,7 @@ const GameGrid = () => {
     <InfiniteScroll dataLength={gameFetchedLength} hasMore={!!hasNextPage} next={() => fetchNextPage()} loader={<Spinner />}>
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        padding="10px"
+        padding="0px"
         spacing={6}
       >
         {isLoading &&
