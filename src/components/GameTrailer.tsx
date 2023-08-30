@@ -12,6 +12,10 @@ const GameTrailer = ({ gameId }: Props) => {
 
   if (error) throw error;
 
+  //Custom Trailer for Mobile Legends
+  if (gameId === 7877)
+    return <iframe width="100%" height="50%" src="https://www.youtube.com/embed/NVBCHm89_vI" title="Mobile Legends Bot Gameplay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
   const first = data?.results[0];
 
   return first ? (
