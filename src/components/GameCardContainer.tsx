@@ -1,4 +1,4 @@
-import { Box, transition } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 interface Props {
   children: ReactNode;
