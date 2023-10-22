@@ -1,0 +1,9 @@
+%%{init: {"theme": "default"}}%%
+flowchart TD
+  NAV["NavBar + SearchInput"] --> STORE["Zustand GameQuery<br/>genre platform sort search"]
+  FILTERS["GenreList + PlatformMenu<br/>SortMenu"] --> STORE
+  STORE --> HOOK["useGames<br/>useInfiniteQuery pages<br/>staleTime 24h"]
+  HOOK --> API["APIClient to api.rawg.io"]
+  API --> GRID["Catalog grid<br/>infinite scroll"]
+  GRID --> CARD["GameCard"]
+  CARD --> DETAIL["games-slug detail<br/>trailer + screenshots"]
