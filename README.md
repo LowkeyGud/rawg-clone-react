@@ -66,7 +66,7 @@ Search or filter the catalog, scroll infinitely through cards, and open any game
 
 **Verifiable:** paginated hooks, store shape, routing table, skeleton components, and the 48-commit layering are all committed.
 
-**Security flag (action required):** the RAWG API key is currently **hardcoded** in `src/services/api-client.ts`. Rotate it in the RAWG dashboard and migrate to `VITE_RAWG_API_KEY` via `import.meta.env` before any public build — the key value is deliberately not printed here. No tests or deployment config are committed.
+**Security note (resolved):** the RAWG API key was previously hardcoded in `src/services/api-client.ts` — it now reads `VITE_RAWG_API_KEY` via `import.meta.env`, with `.env.example` documenting the contract and `.env` gitignored. If you fork this repo: create your own key in the RAWG dashboard (the previously committed key should be treated as burned) and set it as `VITE_RAWG_API_KEY` locally and in your host env. No tests or deployment config are committed.
 
 ## Technical Details
 
@@ -87,7 +87,7 @@ Search or filter the catalog, scroll infinitely through cards, and open any game
    cd rawg-clone-react
    npm install
    ```
-3. **Environment (required migration):** create `.env` with `VITE_RAWG_API_KEY`, then replace the hardcoded key in `src/services/api-client.ts` with `import.meta.env.VITE_RAWG_API_KEY`. Rotate the exposed key. No `.env.example` is committed.
+3. **Environment:** copy `.env.example` to `.env` and fill `VITE_RAWG_API_KEY` (your own key — the previously committed one should be treated as burned).
 4. **Run:**
    ```bash
    npm run dev       # vite dev server
@@ -96,7 +96,7 @@ Search or filter the catalog, scroll infinitely through cards, and open any game
    ```
    Set `VITE_RAWG_API_KEY` in the host env for any deployment.
 5. **Verify:** search a title, combine genre + platform + sort filters, scroll past page one, open a detail page with trailer.
-6. **Common issues:** 401 → key missing/invalid or still reading the hardcoded value; empty art → `image-url.ts` cropping params; stale 2023 deps → install from lockfile, upgrade deliberately.
+6. **Common issues:** 401 → key missing/invalid in `.env` or host env; empty art → `image-url.ts` cropping params; stale 2023 deps → install from lockfile, upgrade deliberately.
 
 No CI workflow is committed in this repo.
 
